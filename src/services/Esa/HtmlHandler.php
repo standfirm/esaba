@@ -259,7 +259,7 @@ class HtmlHandler
     public function replaceEmojiCodes()
     {
         // find emoji codes.
-        preg_match_all('/:([^\s:<>\'"]+):/', $this->crawler->text(), $matches);
+        preg_match_all('/:([[:alnum:]_]+):/', $this->crawler->text(), $matches);
 
         $tempReplacements = [];
         foreach (array_unique($matches[1]) as $name) {
